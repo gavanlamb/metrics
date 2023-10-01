@@ -11,10 +11,10 @@ Update the metrics-addr
 * Linux 
     `/etc/docker/daemon.json`
     ```json
-{
-    "metrics-addr" : "192.168.50.**:9323",
-    "experimental" : true
-}
+    {
+        "metrics-addr" : "192.168.50.**:9323",
+        "experimental" : true
+    }
     ```
   
 * Windows Server
