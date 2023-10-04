@@ -32,7 +32,7 @@ services:
         prometheus.job: prometheus
         prometheus.port: 9090
         prometheus.path: /metrics
-        traefik.enable: 'true'
+        traefik.enable: 'false'
         traefik.http.routers.prometheus.rule: Host(`prometheus.gavanlamb.com`)
         traefik.http.routers.prometheus.entrypoints: websecure
         traefik.http.routers.prometheus.tls.certresolver: letsencrypt
