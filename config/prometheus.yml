@@ -44,12 +44,6 @@ scrape_configs:
       - source_labels: [ __meta_dockerswarm_service_label_prometheus_path ]
         action: replace
         target_label: __metrics_path__
-        
-#storage:
-#  tsdb:
-#    path: /prometheus
-#    retention: 
-#      size: 20GB
 
 tracing:
   client_type: grpc
