@@ -19,6 +19,7 @@ services:
       placement:
         constraints:
           - "node.role==manager"
+          - "node.labels.os==linux"
       rollback_config:
         parallelism: 0
         failure_action: continue
@@ -47,7 +48,7 @@ services:
       mode: global
       placement:
         constraints:
-          - "node.labels.platform == linux"
+          - "node.labels.os==linux"
       rollback_config:
         parallelism: 0
         failure_action: continue
@@ -88,7 +89,7 @@ services:
       mode: global
       placement:
         constraints:
-          - "node.labels.platform==linux"
+          - "node.labels.os==linux"
       rollback_config:
         parallelism: 0
         failure_action: continue
