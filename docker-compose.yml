@@ -6,7 +6,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - prometheus:/prometheus
     networks:
-      - infrastructure
+      - services
     command:
       - --config.file=/etc/prometheus/prometheus.yml
       - --log.format=json
@@ -69,7 +69,7 @@ services:
     environment:
       - NODE_ID={{.Node.ID}}
     networks:
-      - infrastructure
+      - services
     volumes:
       - /:/host:ro,rslave
     logging:
@@ -78,7 +78,7 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.2
     networks:
-      - infrastructure
+      - services
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /:/rootfs:ro
@@ -121,6 +121,6 @@ volumes:
       device: ":/share/docker/prometheus"
 
 networks:
-  infrastructure:
-    name: infrastructure
+  services:
+    name: services
     external: true
