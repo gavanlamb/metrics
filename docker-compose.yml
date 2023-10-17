@@ -42,7 +42,7 @@ services:
     logging:
       options:
         loki-external-labels: "job=prometheus"
-  node_exporter:
+  node-exporter:
     image: quay.io/prometheus/node-exporter:v1.6.1
     deploy:
       mode: global
@@ -59,7 +59,7 @@ services:
         failure_action: rollback
         order: stop-first
       labels:
-        prometheus.job: node_exporter
+        prometheus.job: node-exporter
         prometheus.port: 9100
         prometheus.path: /metrics
     command:
@@ -74,7 +74,7 @@ services:
       - /:/host:ro,rslave
     logging:
       options:
-        loki-external-labels: "job=node_exporter"
+        loki-external-labels: "job=node-exporter"
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.2
     networks:
