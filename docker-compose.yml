@@ -117,7 +117,7 @@ volumes:
     name: prometheus
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.50.19,rw,noatime,rsize=8192,wsize=8192,tcp,timeo=14"
+      o: "nfsvers=4,addr=192.168.50.31,rw,noatime,rsize=8192,wsize=8192,tcp"
       device: ":/share/docker/prometheus"
 
 networks:
