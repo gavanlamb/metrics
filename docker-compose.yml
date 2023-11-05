@@ -11,7 +11,7 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
       - --log.format=json
       - --web.enable-remote-write-receiver
-      - --web.listen-address ":3600"
+      - --web.listen-address=":3600"
     configs:
       - source: prometheus_config
         target: /etc/prometheus/prometheus.yml
