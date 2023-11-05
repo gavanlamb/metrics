@@ -88,7 +88,7 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     command:
-      - -port=3400
+      - ' -port=3400'
     deploy:
       mode: global
       placement:
