@@ -11,6 +11,7 @@ services:
       - --config.file=/etc/prometheus/prometheus.yml
       - --log.format=json
       - --web.enable-remote-write-receiver
+      - --web.listen-address ":3600"
     configs:
       - source: prometheus_config
         target: /etc/prometheus/prometheus.yml
@@ -31,14 +32,14 @@ services:
         order: stop-first
       labels:
         prometheus.job: prometheus
-        prometheus.port: 9090
+        prometheus.port: 3600
         prometheus.path: /metrics
         traefik.enable: 'false'
         traefik.http.routers.prometheus.rule: Host(`prometheus.gavanlamb.com`)
         traefik.http.routers.prometheus.entrypoints: websecure
         traefik.http.routers.prometheus.tls.certresolver: letsencrypt
         traefik.http.routers.prometheus.service: prometheus
-        traefik.http.services.prometheus.loadBalancer.server.port: 9090
+        traefik.http.services.prometheus.loadBalancer.server.port: 3600
     logging:
       options:
         loki-external-labels: "job=prometheus"
