@@ -60,11 +60,12 @@ services:
         order: stop-first
       labels:
         prometheus.job: node-exporter
-        prometheus.port: 9100
+        prometheus.port: 3500
         prometheus.path: /metrics
     command:
       - --path.rootfs=/host
       - --log.format=json
+      - --web.listen-address=":3500"
     pid: host
     environment:
       - NODE_ID={{.Node.ID}}
